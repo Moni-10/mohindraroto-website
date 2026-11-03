@@ -1,0 +1,212 @@
+/* Gallery heading alignment and spacing. */
+body.page-gallery .gallery-page-section {
+  padding-top: 44px;
+}
+
+body.page-gallery .gallery-page-heading {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+body.page-gallery .gallery-page-heading .eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  line-height: 1.2;
+}
+
+body.page-gallery .gallery-page-heading h2 {
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+
+body.page-gallery .gallery-page-heading p {
+  line-height: 1.5;
+}
+
+/* Keep contact columns aligned and prevent an oversized map. */
+body.page-contact .mmw-page-banner.page-banner-contact {
+  display: flex !important;
+  min-height: max(300px, 33.35vw);
+  margin-top: 0;
+}
+
+body.page-contact .mmw-page-banner.page-banner-contact .mmw-page-banner__copy {
+  display: block;
+  padding: 38px 0;
+}
+
+body.page-contact .mmw-contact-grid {
+  align-items: stretch;
+}
+
+body.page-contact .mmw-form-card,
+body.page-contact .mmw-contact-right {
+  align-self: stretch;
+  margin-top: 0;
+}
+
+body.page-contact .mmw-form-card,
+body.page-contact .mmw-info-panel,
+body.page-contact .mmw-location {
+  padding: 24px;
+}
+
+body.page-contact .mmw-contact-right {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 14px;
+}
+
+body.page-contact .mmw-location {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+body.page-contact .mmw-map {
+  height: auto;
+  min-height: 300px;
+  flex: 1 1 auto;
+}
+
+body.page-contact .mmw-map iframe,
+body.page-contact .mmw-map-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+body.page-contact .mmw-features {
+  position: static;
+  width: 100%;
+  margin: 22px 0 0;
+  box-sizing: border-box;
+  padding: 30px max(5vw, calc((100vw - 1280px) / 2));
+  background: #fff;
+  box-shadow: 0 -1px 0 #e3ebf2, 0 1px 0 #e3ebf2;
+}
+
+/* Keep text readable on the dark contact-information panel. */
+body.page-contact main .mmw-info-panel .mmw-eyebrow,
+body.page-contact main .mmw-info-panel h2.section-title,
+body.page-contact main .mmw-info-panel .mmw-info-heading p {
+  color: #fff;
+}
+
+body.page-contact main .mmw-info-panel h2.section-title span {
+  color: #ffa51b;
+}
+
+body.page-contact .mmw-contact-channels {
+  margin-top: 24px;
+}
+
+body.page-contact .mmw-contact-channels__title {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+body.page-contact .mmw-contact-channels__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+body.page-contact .mmw-channel-card {
+  display: flex;
+  min-width: 0;
+  min-height: 76px;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff;
+  color: #06264b;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.page-contact .mmw-channel-card:hover,
+body.page-contact .mmw-channel-card:focus-visible {
+  color: #06264b;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.16);
+}
+
+body.page-contact .mmw-channel-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff980d, #ffbd27);
+  color: #fff;
+  font-size: 21px;
+}
+
+body.page-contact .mmw-channel-card > span:last-child {
+  min-width: 0;
+}
+
+body.page-contact .mmw-channel-card strong,
+body.page-contact .mmw-channel-card small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+body.page-contact .mmw-channel-card strong {
+  margin-bottom: 4px;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+body.page-contact .mmw-channel-card small {
+  color: #34445a;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  body.page-contact .mmw-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.page-contact .mmw-feature:nth-child(2) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  body.page-gallery .gallery-page-section { padding-top: 34px; }
+  body.page-gallery .gallery-page-heading { margin-bottom: 24px; }
+  body.page-contact .mmw-map,
+  body.page-contact .mmw-map iframe,
+  body.page-contact .mmw-map-frame { height: 250px; min-height: 250px; }
+  body.page-contact .mmw-contact-right { display: flex; }
+  body.page-contact .mmw-features {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body.page-contact .mmw-feature,
+  body.page-contact .mmw-feature:first-child {
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid #d3dce8;
+  }
+
+  body.page-contact .mmw-feature:last-child {
+    border-bottom: 0;
+  }
+
+  body.page-contact .mmw-contact-channels__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

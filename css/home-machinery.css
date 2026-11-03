@@ -1,0 +1,426 @@
+/* Homepage headings: one line on tablet and desktop. */
+#disk-hero {
+  margin-top: 0 !important;
+}
+
+/* Fill every hero slide edge-to-edge without cropping the banner artwork. */
+#disk-hero .card {
+  border: 0;
+  background-color: #1a1a1a;
+  background-size: 100% 100%;
+}
+
+/* Wider industries layout with a landscape-friendly featured image. */
+body.page-home .industries-section > .auto-container {
+  width: min(1480px, calc(100% - 40px));
+  max-width: 1480px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  body.page-home .industries-grid {
+    grid-template-rows: repeat(2, clamp(185px, 13vw, 205px));
+  }
+
+  body.page-home .industry-card-feature {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  body.page-home .industries-section > .auto-container {
+    width: calc(100% - 24px);
+  }
+}
+
+@media (min-width: 561px) {
+  body.page-home .sec-title h2,
+  body.page-home .sec-title.centered h2 { max-width: none; white-space: nowrap; }
+  body.page-home .sec-title h2 br,
+  body.page-home .sec-title.centered h2 br { display: none !important; }
+}
+
+/* Commitment heading follows the paragraph's left alignment with compact spacing. */
+body.page-home .quality .sec-title,
+body.page-home .quality .sec-title.centered {
+  margin: 0 0 16px;
+  text-align: left !important;
+}
+body.page-home .quality .sec-title .title {
+  width: fit-content;
+  margin: 0 0 12px;
+}
+body.page-home .quality .sec-title h2,
+body.page-home .quality .sec-title.centered h2 {
+  margin: 0;
+  text-align: left;
+}
+
+/* Compact homepage product cards based on the supplied reference. */
+body.page-home .machinery-categories {
+  position: relative;
+  overflow: hidden;
+  padding: 52px 0 64px;
+  background: #f4f9fd;
+}
+body.page-home .machinery-categories__inner { width: min(1480px, 96%); max-width: 1480px; }
+body.page-home .machinery-categories__header {
+  display: flex;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 34px;
+  padding: 0;
+}
+body.page-home .machinery-categories__header .big-text { display: none; }
+body.page-home .machinery-categories__header .title {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0;
+  color: #003f91 !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+body.page-home .machinery-categories__header h2 {
+  flex: 0 1 auto;
+  margin: 0;
+  color: #0046a8 !important;
+  font-size: clamp(25px, 2.5vw, 35px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+body.page-home .machinery-categories__header h2 span { color: #f29a21 !important; }
+body.page-home .machinery-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+body.page-home .machine-card {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 340px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 22px 18px;
+  border: 1px solid #e2edf5;
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(255,255,255,.88) 0 28%, transparent 29%),
+    linear-gradient(135deg, #f5fbff 0%, #dff2ff 100%);
+  box-shadow: 0 2px 8px rgba(15, 69, 111, .05);
+  text-align: left;
+}
+body.page-home .machine-card:nth-child(4n + 2),
+body.page-home .machine-card:nth-child(4n + 3) {
+  background:
+    radial-gradient(ellipse at 15% 92%, rgba(255,255,255,.82) 0 31%, transparent 32%),
+    linear-gradient(135deg, #fffaf1 0%, #ffebd3 100%);
+}
+body.page-home .machine-card:nth-child(4n) {
+  background:
+    radial-gradient(ellipse at 10% 92%, rgba(255,255,255,.8) 0 30%, transparent 31%),
+    linear-gradient(135deg, #fff8fb 0%, #f9deeb 100%);
+}
+body.page-home .machine-card__number {
+  display: block;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 5px;
+  color: #c9d8e8;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1;
+}
+body.page-home .machine-card__image {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 64%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+body.page-home .machine-card__image img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: fill;
+  object-position: center;
+}
+
+/* Flip from the machine photo to its matching sample/output image. */
+body.page-home .machine-card__image {
+  perspective: 1100px;
+  transform-style: preserve-3d;
+}
+body.page-home .machine-card__image::after {
+  position: absolute;
+  inset: 0;
+  background: #fff var(--machine-sample) center / 100% 100% no-repeat;
+  content: "";
+  pointer-events: none;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+}
+body.page-home .machine-card__image img {
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+}
+body.page-home .machine-card:hover .machine-card__image img,
+body.page-home .machine-card:focus-within .machine-card__image img { transform: rotateY(-180deg); }
+body.page-home .machine-card:hover .machine-card__image::after,
+body.page-home .machine-card:focus-within .machine-card__image::after { transform: rotateY(0deg); }
+body.page-home .machine-card:nth-child(1) { --machine-sample: url("../img/main-image/Rotogravure-Printing-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(2) { --machine-sample: url("../img/main-image/Lamination-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(3) { --machine-sample: url("../img/main-image/Slitting-and-Rewinding-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(4) { --machine-sample: url("../img/main-image/Coating-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(5) { --machine-sample: url("../img/main-image/Flexographic-Printing-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(6) { --machine-sample: url("../img/main-image/Paper-Bag-Making-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(7) { --machine-sample: url("../img/main-image/Metalized-Transparent-Film-Window-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(8) { --machine-sample: url("../img/main-image/Roll-To-Sheet-Cutting-Machine-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(9) { --machine-sample: url("../img/main-image/Embossing-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(10) { --machine-sample: url("../img/main-image/Rewinding-Machine-sample.webp"); }
+body.page-home .machine-card:nth-child(11) { --machine-sample: url("../img/main-image/Pouch-Making-Machine-sample.webp"); }
+
+body.page-home .machine-card__title {
+  display: block;
+  position: relative;
+  z-index: 3;
+  max-width: 34%;
+  margin: 0;
+  color: #09294d;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+body.page-home .machine-card__description {
+  display: block;
+  position: relative;
+  z-index: 3;
+  max-width: 34%;
+  margin-top: 8px;
+  color: #40546c;
+  font-size: 12.5px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+body.page-home .machine-card__description::first-line {
+  color: #111111;
+  font-weight: 800;
+}
+body.page-home .machine-card__read-more {
+  display: inline-flex;
+  position: absolute;
+  z-index: 4;
+  bottom: 14px;
+  left: 18px;
+  min-width: 104px;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  gap: 4px;
+  padding: 9px 14px;
+  border-radius: 4px;
+  color: #003262;
+  background: #ffa51b;
+  box-shadow: none;
+  font-size: 0;
+  font-weight: 700;
+  line-height: 1;
+}
+body.page-home .machine-card__enquiry {
+  display: inline-flex;
+  position: absolute;
+  z-index: 4;
+  bottom: 14px;
+  left: 128px;
+  min-width: 82px;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border: 1px solid #003262;
+  border-radius: 4px;
+  color: #fff;
+  background: #003262;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+}
+body.page-home .machine-card__enquiry:hover {
+  color: #003262;
+  background: #ffa51b;
+  border-color: #ffa51b;
+}
+body.page-home .machine-card__read-more:hover,
+body.page-home .machine-card__read-more:focus-visible {
+  color: #fff;
+  background: #003262;
+}
+body.page-home .machine-card__read-more::before {
+  content: "View Details";
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+}
+body.page-home .machine-card__arrow {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+body.page-home .machine-card__arrow::before {
+  content: "\2192";
+  font-size: 10px;
+  line-height: 1;
+}
+body.page-home .machine-card__badge {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  border-radius: 14px;
+  color: #fff;
+  background: #6b2cc7;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+body.page-home .machinery-categories__grid > .machine-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 10px);
+  justify-self: center;
+}
+
+@media (max-width: 1024px) {
+  body.page-home .machinery-categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  body.page-home .machine-card { min-height: 330px; }
+  body.page-home .machine-card__title { max-width: 34%; font-size: 14px; }
+  body.page-home .machine-card__description { max-width: 34%; font-size: 11px; }
+}
+@media (max-width: 760px) {
+  body.page-home .machinery-categories__grid { grid-template-columns: 1fr; gap: 10px; }
+  body.page-home .machinery-categories__grid > .machine-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+  }
+  body.page-home .machine-card { min-height: 330px; }
+  body.page-home .machine-card__title { max-width: 34%; font-size: 14px; }
+}
+@media (max-width: 560px) {
+  body.page-home .machinery-categories { padding: 36px 10px 44px; }
+  body.page-home .machinery-categories__header { flex-direction: column; align-items: center; gap: 10px; }
+  body.page-home .machinery-categories__header h2 { font-size: 23px; text-align: center; }
+  body.page-home .machinery-categories__grid { grid-template-columns: 1fr; }
+  body.page-home .machine-card { min-height: 300px; padding: 16px 13px; }
+  body.page-home .machine-card__number { font-size: 21px; }
+  body.page-home .machine-card__title { max-width: 36%; font-size: 12px; }
+  body.page-home .machine-card__image { right: 0; width: 60%; }
+  body.page-home .machine-card__description { max-width: 36%; font-size: 9.5px; }
+  body.page-home .machine-card__read-more { bottom: 10px; left: 13px; }
+  body.page-home .machine-card__enquiry { bottom: 10px; left: 123px; }
+}
+
+/* Modern homepage contact panel. */
+body.page-home .contact-us-section {
+  padding: 70px 0 80px;
+}
+body.page-home .contact-us-section > .auto-container { max-width: 1240px; }
+body.page-home .contact-us-section > .auto-container > .sec-title { margin-bottom: 30px; }
+body.page-home .contact-us-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  max-width: 1160px;
+  border: 1px solid #d8e7f2;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0, 50, 98, .12);
+}
+body.page-home .contact-us-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 14px;
+  padding: 38px;
+}
+body.page-home .contact-us-field {
+  min-height: 50px;
+  margin: 0;
+  border: 1px solid #d8e8f5;
+  border-radius: 12px;
+  background: #f5faff;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+body.page-home .contact-us-field:focus-within {
+  border-color: #ffa51b;
+  box-shadow: 0 0 0 3px rgba(255, 165, 27, .14);
+}
+body.page-home .contact-us-phone,
+body.page-home .contact-us-field:has(input[name="company"]),
+body.page-home .contact-us-message,
+body.page-home .contact-us-form > button { grid-column: 1 / -1; }
+body.page-home .contact-us-message {
+  height: 112px;
+  border-radius: 12px;
+}
+body.page-home .contact-us-form > button {
+  min-height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #003262, #075bab);
+  box-shadow: 0 8px 18px rgba(0, 50, 98, .2);
+}
+body.page-home .contact-us-form > button:hover {
+  background: linear-gradient(90deg, #f28c00, #ffa51b);
+  transform: translateY(-2px);
+}
+body.page-home .contact-us-visual {
+  min-height: 570px;
+  padding: 16px;
+  background: linear-gradient(145deg, #07345e, #001f3d);
+}
+body.page-home .contact-us-visual img {
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  body.page-home .contact-us-panel { grid-template-columns: 1fr; }
+  body.page-home .contact-us-visual { min-height: 420px; }
+}
+@media (max-width: 600px) {
+  body.page-home .contact-us-section { padding: 48px 0 56px; }
+  body.page-home .contact-us-panel { margin: 0 8px; border-radius: 16px; }
+  body.page-home .contact-us-form { grid-template-columns: 1fr; padding: 22px 16px; }
+  body.page-home .contact-us-form > * { grid-column: 1; }
+  body.page-home .contact-us-visual { min-height: 250px; padding: 10px; }
+}
